@@ -1,0 +1,249 @@
+/* 全局通用CSS（已加顶部，此处省略） */
+/* 全局通用样式：所有页面共用 - 村超主调：绿#28a745 红#dc3545 黄#ffc107 米白#f8f5f0 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+body {
+    background-color: #f8f5f0;
+    color: #333;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul, ol {
+    list-style: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+/* 通用容器：页面内容居中，限制最大宽度 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* 通用页面标题：所有子页面统一标题样式 */
+.page-title {
+    text-align: center;
+    margin: 40px 0;
+    color: #28a745;
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+}
+.page-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #dc3545;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+/* 通用模块间距：所有页面模块统一间距 */
+.section {
+    margin-bottom: 60px;
+}
+.section h3 {
+    font-size: 24px;
+    color: #28a745;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 4px solid #dc3545;
+}
+
+/* 导航栏：所有页面固定顶部，完全复用首页样式 */
+.nav-bar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: #28a745;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.nav-bar .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.nav-bar .logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.nav-bar .logo h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+.nav-bar .menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+.nav-bar .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+.nav-bar .menu a:hover {
+    color: #ffc107;
+    border-bottom: 2px solid #ffc107;
+}
+
+/* 页脚：所有页面统一底部样式 */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 80px;
+    font-size: 14px;
+}
+.footer p {
+    line-height: 1.8;
+}
+
+/* 通用响应式：所有页面共用手机端适配规则 */
+@media (max-width: 768px) {
+    .nav-bar {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+    .nav-bar .menu {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .page-title {
+        font-size: 26px;
+    }
+    .section h3 {
+        font-size: 20px;
+    }
+}
+/* 赛程赛制页专属样式 - 辅助色：橙红#dc3545 */
+/* 赛制规则卡片 */
+.match-rule {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.rule-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 4px solid #dc3545;
+}
+.rule-card h4 {
+    font-size: 18px;
+    color: #dc3545;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.rule-card h4::before {
+    content: "⚽";
+    font-size: 20px;
+}
+.rule-card p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+/* 通用表格样式（赛程表/积分表） */
+.match-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+.match-table thead {
+    background-color: #dc3545;
+    color: white;
+}
+.match-table th, .match-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.match-table th {
+    font-weight: 600;
+}
+/* 表格隔行变色 */
+.match-table tbody tr:nth-child(even) {
+    background-color: #fdf5f5;
+}
+/* 表格hover高亮 */
+.match-table tbody tr:hover {
+    background-color: #ffebee;
+    transition: 0.2s;
+}
+/* 参赛队伍卡片 */
+.team-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.team-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.team-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 2px solid #dc3545;
+}
+.team-card h4 {
+    color: #333;
+    margin-bottom: 5px;
+}
+.team-card p {
+    font-size: 14px;
+    color: #777;
+}
+
+/* 赛程页手机端响应式 */
+@media (max-width: 768px) {
+    .match-rule {
+        grid-template-columns: 1fr;
+    }
+    .team-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* 手机端表格横向滚动，避免挤爆 */
+    .table-wrap {
+        overflow-x: auto;
+    }
+    .match-table th, .match-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+    .team-card img {
+        width: 60px;
+        height: 60px;
+    }
+}

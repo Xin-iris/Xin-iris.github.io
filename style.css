@@ -1,0 +1,187 @@
+/* 全局样式：清除浏览器默认边距，设置统一字体 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 统一中文字体，Mac自带，无乱码 */
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 网页背景色：浅米色，柔和不刺眼 */
+body {
+    background-color: #f8f5f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 导航栏样式：固定顶部，绿色背景（村超主调） */
+.nav-bar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: #28a745;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+/* logo区图片+文字布局 */
+.nav-bar .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.nav-bar .logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.nav-bar .logo h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+/* 导航菜单样式 */
+.nav-bar .menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+.nav-bar .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+.nav-bar .menu a:hover {
+    color: #ffc107; /* 鼠标悬停变黄色，醒目 */
+    border-bottom: 2px solid #ffc107;
+}
+
+/* 横幅区样式：图片全屏，文字居中叠加 */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 图片自适应，不变形 */
+}
+/* 横幅文字叠加在图片上，半透明背景 */
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    padding: 30px 50px;
+    border-radius: 10px;
+}
+.banner-text h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+.banner-text p {
+    font-size: 18px;
+}
+
+/* 核心内容区：居中布局，留边距，模块之间隔行 */
+.main-content {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 50px;
+}
+/* 每个模块的标题样式 */
+.main-content h3 {
+    font-size: 28px;
+    color: #28a745;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 5px solid #dc3545; /* 红色左侧边框，点缀 */
+}
+/* 简介模块：文字缩进，行高加大 */
+.intro {
+    margin-bottom: 40px;
+}
+.intro p {
+    font-size: 16px;
+    text-indent: 2em; /* 首行缩进2个字符，符合中文排版 */
+    line-height: 1.8;
+}
+/* 特点模块：列表样式美化 */
+.features {
+    margin-bottom: 40px;
+}
+.features ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 两列布局 */
+    gap: 20px;
+}
+.features li {
+    font-size: 16px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.features li::before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 10px;
+}
+/* 图集模块：图片一行排列，自适应 */
+.gallery {
+    margin-bottom: 40px;
+}
+.img-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* 屏幕变小自动换行，适配手机 */
+}
+.img-group img {
+    width: calc(33.33% - 14px);
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer; /* 鼠标悬停变手型 */
+}
+.img-group img:hover {
+    transform: scale(1.02); /* 鼠标悬停轻微放大，有交互感 */
+    transition: 0.3s;
+}
+
+/* 页脚样式：深色背景，文字居中 */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+/* 适配手机端：屏幕小于768px时，样式自动调整 */
+@media (max-width: 768px) {
+    .nav-bar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .banner-text h2 {
+        font-size: 24px;
+    }
+    .img-group img {
+        width: 100%;
+        height: 200px;
+    }
+    .features ul {
+        grid-template-columns: 1fr; /* 手机端单列布局 */
+    }
+}
